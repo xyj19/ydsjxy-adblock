@@ -1,0 +1,57 @@
+! Title: YDSJXY 运动世界校园 广告过滤规则（精简版）
+! Description: 拦截运动世界校园 (com.zjwh.android_wh_physicalfitness) 广告流量
+! 用法: AdGuard → 过滤规则 → 用户规则/自定义过滤器 → 导入本文件 → 开启防护
+! T1/T2 域名规则在 DNS/连接层生效，无需 CA 证书
+! T3 路径规则需在 AdGuard 开启「HTTPS 过滤」并信任 AdGuard CA；不开启不影响 T1/T2
+! 安全边界: 不影响极验风控、业务 API、推送、登录、地图、支付
+! Version: 1.0.0
+
+[Adblock Plus 2.0]
+
+! ============ T1 第三方广告主通道（无需 CA）============
+! 优帆 YFAN 聚合广告 SDK
+||yfanads.com^
+! 天目广告 SDK
+||tianmu.mobi^
+! 有米广告
+||ubox.cn^
+
+! ============ T2 聚合内部广告联盟（无需 CA）============
+! 穿山甲 Pangle 聚合
+||pangolin-sdk-toutiao.com^
+||pangolin-sdk-toutiao1.com^
+||pangolin-sdk-toutiao-b.com^
+! 穿山甲素材/上报
+||pglstatp-toutiao.com^
+! 字节广告域
+||ad.toutiao.com^
+||phoniex.toutiao.com^
+! 穿山甲广告落地页
+||toutiaopage.com^
+! 字节系广告相关域
+||snssdk.com^
+! 穿山甲广告平台
+||csjplatform.com^
+! 快手广告
+||adkwai.com^
+! 快手 SDK 广告测试/日志域
+||gifshow.com^
+! 快手生态素材 CDN
+||yximgs.com^
+! OPPO/欢太广告
+||ads.heytapmobi.com^
+! OPPO 广告素材 CDN
+||adsfs.heytapimage.com^
+! 小米广告 SDK 配置
+||sdkconfig.ad.xiaomi.com^
+! 腾讯广告联盟落地页
+||mqqad.html5.qq.com^
+! 百度联盟广告素材
+||cpro.baidustatic.com^
+! 百度联盟广告
+||union.baidu.com^
+
+! ============ T3 app 自研广告 API（需 HTTPS 过滤）============
+/^https?:\/\/discovery\.gxapp\.iydsj\.com\/api\/v70260\/ad\//
+/^https?:\/\/discovery\.gxapp\.iydsj\.com\/api\/v50\/banner\/list/
+/^https?:\/\/datapoint\.gxapp\.iydsj\.com\/api\/v70260\/datacollection\/ad\//

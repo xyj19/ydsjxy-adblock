@@ -1,0 +1,78 @@
+! Title: YDSJXY 运动世界校园 广告过滤规则
+! Description: 拦截运动世界校园 (com.zjwh.android_wh_physicalfitness) 广告流量
+!   用法: AdGuard → 过滤规则 → 用户规则/自定义过滤器 → 导入本文件 → 开启防护
+!   无需安装 CA 证书/无需 HTTPS 过滤: T1+T2 域名规则在 DNS/连接层生效，
+!     覆盖全部广告素材/请求/上报来源（优帆/天目/穿山甲/快手/OPPO/小米/腾讯/百度/有米），
+!     广告位因素材源被拦而自然加载失败，即可达到去广告效果
+!   T3 路径级规则（可选增强）: 拦 app 自研广告接口 ad/config、banner/list、ad/pv
+!     ——需在 AdGuard 设置开启「HTTPS 过滤」并信任 AdGuard CA（app 无证书固定）
+!     不开启时 T3 不生效，但不影响 T1+T2 的去广告效果
+!   T4 可选激进规则默认注释；开启会误伤业务图片（gxapp-images CDN）或推送统计（友盟）
+! 安全边界: 不拦截 partner.iydsj.com（极验 deviceVerify 风控）、run/discovery 业务 API、getui/华为推送、AMap、QQ/微信/支付宝
+! 证据: docs/evidence.json / .md（域名均可在反编译源码或 classes.dex 溯源，聚合计数）
+! 生成器: tools/build_ad_filter.py
+! Version: 1.0.1
+
+[Adblock Plus 2.0]
+
+! ============ T1 第三方广告主通道（无需 CA，DNS/连接层生效）============
+! 优帆 YFAN 聚合广告 SDK（Guandian 提供方）：api/tracker/adx-data/log 四个子域均在源码与 classes.dex 命中  [证据: java:2/dex:1]
+||yfanads.com^
+! 天目广告 SDK（TianMu 提供方 com.tianmu.ad）：sdk.tianmu.mobi  [证据: dex:2]
+||tianmu.mobi^
+! 有米广告（v.ubox.cn，qr 落地页）  [证据: java:3/dex:1]
+||ubox.cn^
+
+! ============ T2 聚合内部广告联盟（无需 CA，DNS/连接层生效）============
+! 穿山甲 Pangle 聚合：api-access/log-api/gromore  [证据: dex:5]
+||pangolin-sdk-toutiao.com^
+! 穿山甲 Pangle 备用通道  [证据: dex:2]
+||pangolin-sdk-toutiao1.com^
+! 穿山甲 Pangle 备用通道  [证据: dex:2]
+||pangolin-sdk-toutiao-b.com^
+! 穿山甲素材/上报（sf3-fe-tos.pglstatp-toutiao.com）  [证据: dex:62]
+||pglstatp-toutiao.com^
+! 字节广告域（ad.toutiao.com）  [证据: dex:1]
+||ad.toutiao.com^
+! 穿山甲备用上报域  [证据: dex:1]
+||phoniex.toutiao.com^
+! 穿山甲广告落地页（www.toutiaopage.com）  [证据: dex:1]
+||toutiaopage.com^
+! 字节系统计/广告相关域（log.snssdk.com）  [证据: dex:3]
+||snssdk.com^
+! 穿山甲广告平台域（www.csjplatform.com）  [证据: dex:2]
+||csjplatform.com^
+! 快手广告（p1-p5-lm.adkwai.com）  [证据: java:4/dex:11]
+||adkwai.com^
+! 快手 SDK 广告测试/日志域（ad-open-api.test/log-sdk.gifshow.com；不影响 open.kuaishou.com 登录）  [证据: dex:1]
+||gifshow.com^
+! 快手生态素材 CDN（static.yximgs.com；快手分享场景图片）  [证据: java:2/dex:3]
+||yximgs.com^
+! OPPO/欢太广告域（uapi.ads/adx.ads/ssp-adx.ads/stg-data.ads）  [证据: java:5/dex:5]
+||ads.heytapmobi.com^
+! OPPO 广告素材 CDN  [证据: java:2/dex:2]
+||adsfs.heytapimage.com^
+! 小米广告 SDK 配置  [证据: dex:1]
+||sdkconfig.ad.xiaomi.com^
+! 腾讯广告联盟落地页  [证据: dex:1]
+||mqqad.html5.qq.com^
+! 百度联盟广告素材  [证据: dex:2]
+||cpro.baidustatic.com^
+! 百度联盟广告  [证据: dex:2]
+||union.baidu.com^
+
+! ============ T3 app 自研广告 API（需 HTTPS 过滤）============
+! 命中后连接直接丢弃：app 广告加载回调走失败分支，广告位静默隐藏（AdvertiseControl/BannerViewModel 均有异常兜底）
+! 自研广告系统：GET api/v70260/ad/config（AdvertiseControl.requestAdConfig / DiscoveryApiManager.getAdMatchConfig）
+/^https?:\/\/discovery\.gxapp\.iydsj\.com\/api\/v70260\/ad\//
+! 首页 banner 广告位：POST api/v50/banner/list（BannerViewModel.requestBanner / DiscoveryApiManager.getBannerList）
+/^https?:\/\/discovery\.gxapp\.iydsj\.com\/api\/v50\/banner\/list/
+! 广告曝光上报：POST api/v70260/datacollection/ad/pv（DiscoveryApiManager.pvDataAd / ADTrackingModel）
+/^https?:\/\/datapoint\.gxapp\.iydsj\.com\/api\/v70260\/datacollection\/ad\//
+! /^https?:\/\/datapoint\.gxapp\.iydsj\.com\/api\/v76\/startup\/pv/  启动页曝光统计（DiscoveryApiManager.getSplashPv；仅遥测，可选关闭）
+
+! ============ T4 可选激进（默认关闭，去掉行首 ! 生效）============
+! ||umeng.com^  友盟统计/推送全系（含广告上报 log.umsns.com；拦后友盟推送渠道失效）  [证据: dex:5]
+! ||umengcloud.com^  友盟统计备用域  [证据: dex:1]
+! ||umsns.com^  友盟社媒广告统计  [证据: dex:5]
+! ||gxapp-images.iydsj.com^  业务图片 CDN（可能含广告素材，但拦整域会丢失头像/活动图）  [证据: java:60/dex:22]

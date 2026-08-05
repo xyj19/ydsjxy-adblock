@@ -1,0 +1,444 @@
+{
+  "summary": {
+    "generated_at": "2026-08-03",
+    "tier1_domains": 3,
+    "tier2_domains": 18,
+    "tier3_urls": 3,
+    "optional_tier4": 4,
+    "rules_total": 24,
+    "evidence_hosts_scanned": 25,
+    "evidence_total_hits": 222,
+    "evidence_mode": "builtin"
+  },
+  "rules": [
+    {
+      "type": "domain",
+      "pattern": "yfanads.com",
+      "tier": 1,
+      "note": "优帆 YFAN 聚合广告 SDK（Guandian 提供方）：api/tracker/adx-data/log 四个子域均在源码与 classes.dex 命中",
+      "evidence": {
+        "java": 2,
+        "dex": 1,
+        "total": 3
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "tianmu.mobi",
+      "tier": 1,
+      "note": "天目广告 SDK（TianMu 提供方 com.tianmu.ad）：sdk.tianmu.mobi",
+      "evidence": {
+        "java": 0,
+        "dex": 2,
+        "total": 2
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "ubox.cn",
+      "tier": 1,
+      "note": "有米广告（v.ubox.cn，qr 落地页）",
+      "evidence": {
+        "java": 3,
+        "dex": 1,
+        "total": 4
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "pangolin-sdk-toutiao.com",
+      "tier": 2,
+      "note": "穿山甲 Pangle 聚合：api-access/log-api/gromore",
+      "evidence": {
+        "java": 0,
+        "dex": 5,
+        "total": 5
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "pangolin-sdk-toutiao1.com",
+      "tier": 2,
+      "note": "穿山甲 Pangle 备用通道",
+      "evidence": {
+        "java": 0,
+        "dex": 2,
+        "total": 2
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "pangolin-sdk-toutiao-b.com",
+      "tier": 2,
+      "note": "穿山甲 Pangle 备用通道",
+      "evidence": {
+        "java": 0,
+        "dex": 2,
+        "total": 2
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "pglstatp-toutiao.com",
+      "tier": 2,
+      "note": "穿山甲素材/上报（sf3-fe-tos.pglstatp-toutiao.com）",
+      "evidence": {
+        "java": 0,
+        "dex": 62,
+        "total": 62
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "ad.toutiao.com",
+      "tier": 2,
+      "note": "字节广告域（ad.toutiao.com）",
+      "evidence": {
+        "java": 0,
+        "dex": 1,
+        "total": 1
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "phoniex.toutiao.com",
+      "tier": 2,
+      "note": "穿山甲备用上报域",
+      "evidence": {
+        "java": 0,
+        "dex": 1,
+        "total": 1
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "toutiaopage.com",
+      "tier": 2,
+      "note": "穿山甲广告落地页（www.toutiaopage.com）",
+      "evidence": {
+        "java": 0,
+        "dex": 1,
+        "total": 1
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "snssdk.com",
+      "tier": 2,
+      "note": "字节系统计/广告相关域（log.snssdk.com）",
+      "evidence": {
+        "java": 0,
+        "dex": 3,
+        "total": 3
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "csjplatform.com",
+      "tier": 2,
+      "note": "穿山甲广告平台域（www.csjplatform.com）",
+      "evidence": {
+        "java": 0,
+        "dex": 2,
+        "total": 2
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "adkwai.com",
+      "tier": 2,
+      "note": "快手广告（p1-p5-lm.adkwai.com）",
+      "evidence": {
+        "java": 4,
+        "dex": 11,
+        "total": 15
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "gifshow.com",
+      "tier": 2,
+      "note": "快手 SDK 广告测试/日志域（ad-open-api.test/log-sdk.gifshow.com；不影响 open.kuaishou.com 登录）",
+      "evidence": {
+        "java": 0,
+        "dex": 1,
+        "total": 1
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "yximgs.com",
+      "tier": 2,
+      "note": "快手生态素材 CDN（static.yximgs.com；快手分享场景图片）",
+      "evidence": {
+        "java": 2,
+        "dex": 3,
+        "total": 5
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "ads.heytapmobi.com",
+      "tier": 2,
+      "note": "OPPO/欢太广告域（uapi.ads/adx.ads/ssp-adx.ads/stg-data.ads）",
+      "evidence": {
+        "java": 5,
+        "dex": 5,
+        "total": 10
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "adsfs.heytapimage.com",
+      "tier": 2,
+      "note": "OPPO 广告素材 CDN",
+      "evidence": {
+        "java": 2,
+        "dex": 2,
+        "total": 4
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "sdkconfig.ad.xiaomi.com",
+      "tier": 2,
+      "note": "小米广告 SDK 配置",
+      "evidence": {
+        "java": 0,
+        "dex": 1,
+        "total": 1
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "mqqad.html5.qq.com",
+      "tier": 2,
+      "note": "腾讯广告联盟落地页",
+      "evidence": {
+        "java": 0,
+        "dex": 1,
+        "total": 1
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "cpro.baidustatic.com",
+      "tier": 2,
+      "note": "百度联盟广告素材",
+      "evidence": {
+        "java": 0,
+        "dex": 2,
+        "total": 2
+      }
+    },
+    {
+      "type": "domain",
+      "pattern": "union.baidu.com",
+      "tier": 2,
+      "note": "百度联盟广告",
+      "evidence": {
+        "java": 0,
+        "dex": 2,
+        "total": 2
+      }
+    },
+    {
+      "type": "url",
+      "pattern": "^https?://discovery\\.gxapp\\.iydsj\\.com/api/v70260/ad/",
+      "tier": 3,
+      "note": "自研广告系统：GET api/v70260/ad/config（AdvertiseControl.requestAdConfig / DiscoveryApiManager.getAdMatchConfig）"
+    },
+    {
+      "type": "url",
+      "pattern": "^https?://discovery\\.gxapp\\.iydsj\\.com/api/v50/banner/list",
+      "tier": 3,
+      "note": "首页 banner 广告位：POST api/v50/banner/list（BannerViewModel.requestBanner / DiscoveryApiManager.getBannerList）"
+    },
+    {
+      "type": "url",
+      "pattern": "^https?://datapoint\\.gxapp\\.iydsj\\.com/api/v70260/datacollection/ad/",
+      "tier": 3,
+      "note": "广告曝光上报：POST api/v70260/datacollection/ad/pv（DiscoveryApiManager.pvDataAd / ADTrackingModel）"
+    }
+  ],
+  "errors": [],
+  "business_allow": [
+    "iydsj.com",
+    "myhuaweicloud.com",
+    "geetest.com",
+    "getui.com",
+    "mobileservice.cn",
+    "amap.com",
+    "openmobile.qq.com",
+    "api.weixin.qq.com",
+    "api.weibo.com",
+    "alipay.com",
+    "aip.baidubce.com",
+    "cmpassport.com",
+    "wosms.cn",
+    "ccidcall.cn",
+    "10010.com",
+    "sj.qq.com",
+    "a.app.qq.com",
+    "huawei.com",
+    "resolver.msg.xiaomi.net",
+    "qq.com",
+    "xiaomi.com",
+    "baidu.com",
+    "bytedance.net",
+    "volces.com",
+    "kuaishou.com",
+    "heytapmobi.com",
+    "heytapimage.com",
+    "toutiao.com"
+  ],
+  "optional_rules": [
+    [
+      "domain",
+      "umeng.com",
+      "友盟统计/推送全系（含广告上报 log.umsns.com；拦后友盟推送渠道失效）"
+    ],
+    [
+      "domain",
+      "umengcloud.com",
+      "友盟统计备用域"
+    ],
+    [
+      "domain",
+      "umsns.com",
+      "友盟社媒广告统计"
+    ],
+    [
+      "domain",
+      "gxapp-images.iydsj.com",
+      "业务图片 CDN（可能含广告素材，但拦整域会丢失头像/活动图）"
+    ]
+  ],
+  "hosts": {
+    "yfanads.com": {
+      "java": 2,
+      "dex": 1,
+      "total": 3
+    },
+    "tianmu.mobi": {
+      "java": 0,
+      "dex": 2,
+      "total": 2
+    },
+    "ubox.cn": {
+      "java": 3,
+      "dex": 1,
+      "total": 4
+    },
+    "pangolin-sdk-toutiao.com": {
+      "java": 0,
+      "dex": 5,
+      "total": 5
+    },
+    "pangolin-sdk-toutiao1.com": {
+      "java": 0,
+      "dex": 2,
+      "total": 2
+    },
+    "pangolin-sdk-toutiao-b.com": {
+      "java": 0,
+      "dex": 2,
+      "total": 2
+    },
+    "pglstatp-toutiao.com": {
+      "java": 0,
+      "dex": 62,
+      "total": 62
+    },
+    "ad.toutiao.com": {
+      "java": 0,
+      "dex": 1,
+      "total": 1
+    },
+    "phoniex.toutiao.com": {
+      "java": 0,
+      "dex": 1,
+      "total": 1
+    },
+    "toutiaopage.com": {
+      "java": 0,
+      "dex": 1,
+      "total": 1
+    },
+    "snssdk.com": {
+      "java": 0,
+      "dex": 3,
+      "total": 3
+    },
+    "csjplatform.com": {
+      "java": 0,
+      "dex": 2,
+      "total": 2
+    },
+    "adkwai.com": {
+      "java": 4,
+      "dex": 11,
+      "total": 15
+    },
+    "gifshow.com": {
+      "java": 0,
+      "dex": 1,
+      "total": 1
+    },
+    "yximgs.com": {
+      "java": 2,
+      "dex": 3,
+      "total": 5
+    },
+    "ads.heytapmobi.com": {
+      "java": 5,
+      "dex": 5,
+      "total": 10
+    },
+    "adsfs.heytapimage.com": {
+      "java": 2,
+      "dex": 2,
+      "total": 4
+    },
+    "sdkconfig.ad.xiaomi.com": {
+      "java": 0,
+      "dex": 1,
+      "total": 1
+    },
+    "mqqad.html5.qq.com": {
+      "java": 0,
+      "dex": 1,
+      "total": 1
+    },
+    "cpro.baidustatic.com": {
+      "java": 0,
+      "dex": 2,
+      "total": 2
+    },
+    "union.baidu.com": {
+      "java": 0,
+      "dex": 2,
+      "total": 2
+    },
+    "umeng.com": {
+      "java": 0,
+      "dex": 5,
+      "total": 5
+    },
+    "umengcloud.com": {
+      "java": 0,
+      "dex": 1,
+      "total": 1
+    },
+    "umsns.com": {
+      "java": 0,
+      "dex": 5,
+      "total": 5
+    },
+    "gxapp-images.iydsj.com": {
+      "java": 60,
+      "dex": 22,
+      "total": 82
+    }
+  }
+}
