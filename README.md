@@ -5,6 +5,17 @@
 **核心结论：T1+T2 共 21 条域名级规则即可去广告，无需安装 CA 证书、无需 HTTPS 过滤**——
 广告素材/请求/上报源全部位于第三方广告域名，被拦后广告位自然加载失败。
 
+## 下载（成品过滤规则）
+
+| 版本 | 文件 | 说明 |
+| --- | --- | --- |
+| 完整版 v1.0.1 | [ydsjxy_ads_adguard.txt](https://github.com/xyj19/ydsjxy-adblock/releases/latest/download/ydsjxy_ads_adguard.txt) | 24 条激活规则 + 4 条可选注释（推荐） |
+| 精简版 | [ydsjxy_ads_adguard_min.txt](https://github.com/xyj19/ydsjxy-adblock/releases/latest/download/ydsjxy_ads_adguard_min.txt) | T1/T2 + 3 条 T3，无注释 |
+
+> 直接下载地址（仓库内文件，无需 Release）：
+> [完整版](https://raw.githubusercontent.com/xyj19/ydsjxy-adblock/main/filters/ydsjxy_ads_adguard.txt) /
+> [精简版](https://raw.githubusercontent.com/xyj19/ydsjxy-adblock/main/filters/ydsjxy_ads_adguard_min.txt)
+
 ## 特性
 
 - **免 CA**：T1（优帆/天目/有米主通道）+ T2（穿山甲/快手/OPPO/小米/腾讯/百度联盟）共 21 条域名级规则，DNS/连接层生效
